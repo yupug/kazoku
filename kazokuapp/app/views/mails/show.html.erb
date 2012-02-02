@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>To:</b>
+  <%= @mail.to %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @mail.from %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @mail.title %>
+</p>
+
+<p>
+  <b>Attachement:</b>
+  <%= @mail.attachement %>
+</p>
+
+<p>
+  <b>Is imported:</b>
+  <%= @mail.is_imported %>
+</p>
+
+
+<%= link_to 'Edit', edit_mail_path(@mail) %> |
+<%= link_to 'Back', mails_path %>
