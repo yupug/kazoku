@@ -4,7 +4,7 @@ class CreateMails < ActiveRecord::Migration
       t.string :to
       t.string :from
       t.string :title
-      t.binary :attachement
+      t.binary :attachment, :limit => 5.megabyte
       t.integer :is_imported
 
       t.timestamps

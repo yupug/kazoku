@@ -14,7 +14,6 @@ gem 'json'
 #"Could not find a JavaScript runtime"
 
 gem 'execjs'
-
 gem 'therubyracer'
 
 # Gems used only for assets and not required
@@ -45,3 +44,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug'
+
+
+# To handle mail
+gem 'tmail'
+

@@ -10,16 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131144506) do
+ActiveRecord::Schema.define(:version => 20120201144507) do
 
   create_table "mails", :force => true do |t|
     t.string   "to"
     t.string   "from"
     t.string   "title"
-    t.binary   "attachement"
+    t.binary   "attachment",  :limit => 16777215
     t.integer  "is_imported"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "photos", :force => true do |t|

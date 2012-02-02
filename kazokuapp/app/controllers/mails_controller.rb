@@ -2,12 +2,13 @@ class MailsController < ApplicationController
   # GET /mails
   # GET /mails.json
   def index
-    @mails = Mail.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @mails }
-    end
+    @mail = Mail.find(5)
+        
+    send_data(@mail.attachment, :type => 'image/jpeg', :disposition => 'inline')
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.json { render :json => @mails }
+#    end
   end
 
   # GET /mails/1
