@@ -1,0 +1,10 @@
+www:
+  type: ruby
+  approot: kazokuapp
+
+db:
+  type: mysql
+
+mailer:
+  type: smtp
+
