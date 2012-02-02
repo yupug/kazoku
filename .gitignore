@@ -1,2 +1,3 @@
-kazokuapp/tmp/
-kazokuapp/log/
+kazokuapp/tmp/**/*
+kazokuapp/log/*.log
+kazokuapp/db/*.sqlite3
