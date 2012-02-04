@@ -1,0 +1,16 @@
+<%= form_tag ({:controller => "login", :action => "login"}, {:method => "post" }) do %>
+<table border="0">
+  <tr><td align="right">ユーザー名:</td>
+      <td><%= text_field_tag 'email', flash[:email] %></td></tr>
+  <tr><td align="right">パスワード:</td>
+      <td><%= password_field_tag 'password', '' %></td></tr>
+  <tr><td colspan="2" align="center">
+    <%= submit_tag 'ログイン' %>
+    </td></tr>
+</table>
+<% end %>
+<% if flash[:warning] -%>
+<div id="warning">
+  <%= flash[:warning] %>
+</div>
+<% end -%>

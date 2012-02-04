@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   def check_logined
     if session[:user_id]
       begin
-        @user = User.find_all_by_user_id(session[:user_id])
+        @current_user = User.find_all_by_id(session[:user_id])
       rescue ActiveRecord::RecordNotFound
         logger.error "セッションの情報(" + session[:user_id] + ")は user_infos には存在しません。"
         reset_session
       end
     end
 
-    unless @user
+    unless @current_user
       flash[:referer] = request.fullpath
       redirect_to :controller => 'login', :action => 'index'
     end

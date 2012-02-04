@@ -5,7 +5,9 @@ Kazokuapp::Application.routes.draw do
 
   resources :users
 
-  resources :sessions
+  match "login" => "login#index"
+  match "login/login" => "login#login"
+  match "logout" => "login#logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
