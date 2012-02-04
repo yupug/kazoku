@@ -7,18 +7,19 @@
 
 <p>
   <b>User:</b>
-  <%= @photo.user %>
+  <%= @photo.user.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @photo.title %>
 </p>
 
 <p>
   <b>Content:</b>
-  <%= @photo.content %>
+  <img src="/photos/<%= @photo.id %>?data&scale=240x180" alt="<%= @photo.title %>">
 </p>
 
-<p>
-  <b>Desc:</b>
-  <%= @photo.desc %>
-</p>
 
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |

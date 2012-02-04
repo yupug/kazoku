@@ -2,7 +2,7 @@ class MailsController < ApplicationController
   # GET /mails
   # GET /mails.json
   def index
-    @mail = Mail.find(5)
+    @mail = Mail.find(15)
         
     send_data(@mail.attachment, :type => 'image/jpeg', :disposition => 'inline')
 #    respond_to do |format|

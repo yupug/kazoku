@@ -1,3 +1,5 @@
+require 'rmagick'
+
 class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
@@ -15,9 +17,20 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @photo }
+    if params.has_key?("data") then
+      image =  Magick::Image.from_blob(@photo.content).first
+      if scale = params[:scale] then
+        image = image.change_geometry(scale) do |cols,rows,img|
+          img.resize(cols, rows)
+        end
+      end
+      send_data(image.to_blob, :type => 'image/jpeg', :disposition => 'inline')
+
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @photo }
+      end
     end
   end
 

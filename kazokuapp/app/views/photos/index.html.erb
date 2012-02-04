@@ -4,8 +4,7 @@
   <tr>
     <th>Id</th>
     <th>User</th>
-    <th>Content</th>
-    <th>Desc</th>
+    <th>Title</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +14,7 @@
   <tr>
     <td><%= photo.id %></td>
     <td><%= photo.user %></td>
-    <td><%= photo.content %></td>
-    <td><%= photo.desc %></td>
+    <td><%= photo.title %></td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>

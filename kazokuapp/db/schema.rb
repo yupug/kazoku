@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201144507) do
+ActiveRecord::Schema.define(:version => 201202032345551) do
 
   create_table "mails", :force => true do |t|
     t.string   "to"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(:version => 20120201144507) do
 
   create_table "photos", :force => true do |t|
     t.integer  "user_id"
-    t.binary   "content"
-    t.string   "desc"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.binary   "content",    :limit => 16777215
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
@@ -40,5 +40,7 @@ ActiveRecord::Schema.define(:version => 20120201144507) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  add_index "users", ["receive_email"], :name => "index_users_on_receive_email", :unique => true
 
 end

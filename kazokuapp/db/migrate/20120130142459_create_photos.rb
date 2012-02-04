@@ -3,8 +3,8 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.integer :id
       t.belongs_to :user
-      t.binary :content
-      t.string :desc
+      t.string :title
+      t.binary :content, :limit => 1.megabyte
 
       t.timestamps
     end
