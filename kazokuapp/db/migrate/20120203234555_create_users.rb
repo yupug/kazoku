@@ -1,10 +1,10 @@
-require 'digest/sha1'
-
 class CreateUsers < ActiveRecord::Migration
 
   def change
     create_table :users do |t|
       t.integer :id
+      
+      t.belongs_to :kazoku
       t.string :email
       t.string :password
       t.string :name
@@ -12,6 +12,8 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :users, :kazoku_id
+    add_index :users, :email, :unique
     add_index :users, :receive_email, :unique
   end
 end
