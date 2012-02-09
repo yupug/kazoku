@@ -1,5 +1,5 @@
 #coding: utf-8
-require 'rmagick'
+require 'RMagick'
 
 class PhotosController < ApplicationController
   # GET /photos
