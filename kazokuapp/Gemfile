@@ -50,5 +50,5 @@ gem 'jquery-rails'
 gem 'tmail'
 
 #To handle images
-gem 'RMagick'
+gem 'rmagick'
 
