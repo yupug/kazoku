@@ -36,7 +36,7 @@ Kazokuapp::Application.configure do
   config.assets.debug = true
   
   # Mailgun Configuration
-  config.mailgun_email = "post-images-dev@kazoku.mailgun.org"
+  config.mailgun_email = "post-images@kazoku.mailgun.org"
   config.mailgun_password = "nadesico"
   
 end
