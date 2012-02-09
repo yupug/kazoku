@@ -1,4 +1,4 @@
-<%= form_tag ({:controller => "login", :action => "login"}, {:method => "post" }) do %>
+<%= form_tag ({:controller => "login", :action => "login"}) do %>
 <table border="0">
   <tr><td align="right">ユーザー名:</td>
       <td><%= text_field_tag 'email', flash[:email] %></td></tr>
