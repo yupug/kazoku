@@ -1,3 +1,4 @@
+#coding: utf-8
 class ApplicationController < ActionController::Base
   # ログイン認証用のフィルタ
   before_filter :check_logined
