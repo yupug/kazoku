@@ -10,29 +10,67 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 201202032345551) do
+ActiveRecord::Schema.define(:version => 20120209144603) do
 
-  create_table "mails", :force => true do |t|
-    t.string   "to"
-    t.string   "from"
-    t.string   "title"
-    t.binary   "attachment",  :limit => 16777215
-    t.integer  "is_imported"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+  create_table "comments", :force => true do |t|
+    t.integer  "kazoku_id"
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  create_table "photos", :force => true do |t|
+  add_index "comments", ["kazoku_id"], :name => "index_comments_on_kazoku_id"
+  add_index "comments", ["photo_id"], :name => "index_comments_on_photo_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "contents", :force => true do |t|
+    t.integer  "kazoku_id"
     t.integer  "user_id"
-    t.string   "title"
-    t.binary   "content",    :limit => 16777215
+    t.binary   "data",       :limit => 16777215
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end
 
+  add_index "contents", ["kazoku_id"], :name => "index_contents_on_kazoku_id"
+  add_index "contents", ["user_id"], :name => "index_contents_on_user_id"
+
+  create_table "kazokus", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "kazoku_id"
+    t.integer  "user_id"
+    t.integer  "content_id"
+    t.string   "title"
+    t.string   "mime_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "photos", ["content_id"], :name => "index_photos_on_content_id"
+  add_index "photos", ["kazoku_id"], :name => "index_photos_on_kazoku_id"
   add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
+  create_table "timelines", :force => true do |t|
+    t.integer  "kazoku_id"
+    t.integer  "user_id"
+    t.string   "action"
+    t.string   "object1"
+    t.string   "object2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "timelines", ["kazoku_id"], :name => "index_timelines_on_kazoku_id"
+  add_index "timelines", ["user_id"], :name => "index_timelines_on_user_id"
+
   create_table "users", :force => true do |t|
+    t.integer  "kazoku_id"
     t.string   "email"
     t.string   "password"
     t.string   "name"
@@ -41,6 +79,8 @@ ActiveRecord::Schema.define(:version => 201202032345551) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["kazoku_id"], :name => "index_users_on_kazoku_id"
   add_index "users", ["receive_email"], :name => "index_users_on_receive_email", :unique => true
 
 end

@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 one:
   id: 1
-  email: aiueo@gmail.com
+  kazoku_id: 1
+  email: yu.isobe@gmail.com
   password: <%= User.hashed_password("pass") %>
-  name: あいうえお
+  name: 磯部　優
   receive_email: 'post-images-dev@kazoku.mailgun.org'

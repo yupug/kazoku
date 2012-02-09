@@ -1,6 +1,5 @@
 require 'net/pop'
 require 'tmail'
-#require 'nkf'
 require 'rmagick'
 
 class Mail < ActiveRecord::Base
@@ -14,19 +13,11 @@ class Mail < ActiveRecord::Base
     if  pop.mails.empty? then
       logger.debug("No mail")
     else
-      # fetch user's receive_emails
-      # generate hashtable { email => user_id }
-      email_user_id_hashtbl = {}
-      @users = User.find(:all, :conditions=>['LENGTH(receive_email) > 0'])
-      @users.each do |user|
-        email_user_id_hashtbl[user.receive_email] = user.id
-      end
-      logger.debug(email_user_id_hashtbl)
-      
+      # fetch user's receive_emails      
       pop.each_mail do |m|
         email = TMail::Mail.parse(m.pop)        
 
-        unless user_id = email_user_id_hashtbl.has_key?(email.to.first) then
+        unless @user = User.find_by_receive_email(email.to.first) then
           # mail will be deleted when 'to' address is invalid
           m.delete
         end
@@ -40,13 +31,24 @@ class Mail < ActiveRecord::Base
             end
 
             begin
+              @content = Content.new(
+                :kazoku => @user.kazoku,
+                :user => @user,
+                :data => resized.to_blob
+              )
+              @content.save!
+              
               @photo = Photo.new(
-                :user_id => user_id,
+                :kazoku => @user.kazoku,
+                :user => @user,
+                :content => @content,
                 :title => email.subject,
-                :content => resized.to_blob
+                :mime_type => resized.mime_type
               )
               @photo.save!
+
               #m.delete
+              
             rescue Exception => e
               logger.error(e)
             end

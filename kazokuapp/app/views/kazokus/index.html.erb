@@ -1,0 +1,23 @@
+<h1>Listing kazokus</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @kazokus.each do |kazoku| %>
+  <tr>
+    <td><%= kazoku.name %></td>
+    <td><%= link_to 'Show', kazoku %></td>
+    <td><%= link_to 'Edit', edit_kazoku_path(kazoku) %></td>
+    <td><%= link_to 'Destroy', kazoku, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Kazoku', new_kazoku_path %>

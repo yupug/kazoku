@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+<%
+def image_data(file_name)
+  ActiveSupport::Base64.encode64(IO.read("test/fixtures/#{file_name}")).gsub(/^/, "    ")
+end
+%>
+
+one:
+  id: 1
+  kazoku_id: 1
+  user_id: 1
+  data: !binary |
+<%= image_data 'Photo1.jpg' %>
+
+two:
+  id: 2
+  kazoku_id: 1
+  user_id: 1
+  data: !binary |
+<%= image_data 'Photo2.jpg' %>

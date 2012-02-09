@@ -4,14 +4,12 @@ one:
   id: 1
   kazoku_id: 1
   user_id: 1
-  content_id: 1
-  title: 画像1
-  mime_type: image/jpeg
+  photo_id: 1
+  comment: コメント1
 
 two:
   id: 2
   kazoku_id: 1
   user_id: 1
-  content_id: 2
-  title: 画像2
-  mime_type: image/jpeg
+  photo_id: 2
+  comment: コメント2

@@ -1,0 +1,2 @@
+module KazokusHelper
+end

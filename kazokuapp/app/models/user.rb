@@ -1,7 +1,8 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-
+  belongs_to :kazoku
+  
   attr_protected :hashed_password
   validates_presence_of :email, :password, :on => :create
 

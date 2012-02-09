@@ -18,13 +18,13 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     if params.has_key?("data") then
-      image =  Magick::Image.from_blob(@photo.content).first
+      image =  Magick::Image.from_blob(@photo.content.data).first
       if scale = params[:scale] then
         image = image.change_geometry(scale) do |cols,rows,img|
           img.resize(cols, rows)
         end
       end
-      send_data(image.to_blob, :type => 'image/jpeg', :disposition => 'inline')
+      send_data(image.to_blob, :type => @photo.mime_type, :disposition => 'inline')
 
     else
       respond_to do |format|
