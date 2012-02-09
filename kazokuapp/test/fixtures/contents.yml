@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 <%
 def image_data(file_name)
-  ActiveSupport::Base64.encode64(IO.read("test/fixtures/#{file_name}")).gsub(/^/, "    ")
+  ActiveSupport::Base64.encode64(IO.read("#{Rails.root}/test/fixtures/#{file_name}")).gsub(/^/, "    ")
 end
 %>
 
