@@ -1,6 +1,6 @@
 require 'net/pop'
 require 'tmail'
-require 'rmagick'
+require 'RMagick'
 
 class Mail < ActiveRecord::Base
   def self.poll_mailgun

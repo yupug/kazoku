@@ -1,4 +1,4 @@
-require 'rmagick'
+require 'RMagick'
 
 class Content < ActiveRecord::Base
   belongs_to :kazoku
