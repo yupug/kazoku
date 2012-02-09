@@ -1,3 +1,4 @@
+#coding: utf-8
 class KazokusController < ApplicationController
   # GET /kazokus
   # GET /kazokus.json

@@ -1,3 +1,5 @@
+#coding: utf-8
+
 class Kazoku < ActiveRecord::Base
   has_many :users
   has_many :photos

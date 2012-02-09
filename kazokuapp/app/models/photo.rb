@@ -1,3 +1,5 @@
+#coding: utf-8
+
 class Photo < ActiveRecord::Base
   belongs_to :kazoku
   belongs_to :user

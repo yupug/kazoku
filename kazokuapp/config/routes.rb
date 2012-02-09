@@ -1,3 +1,5 @@
+#coding: utf-8
+
 Kazokuapp::Application.routes.draw do
   resources :kazokus
 

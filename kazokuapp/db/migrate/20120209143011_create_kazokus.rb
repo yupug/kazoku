@@ -1,3 +1,5 @@
+#coding: utf-8
+
 class CreateKazokus < ActiveRecord::Migration
   def change
     create_table :kazokus do |t|

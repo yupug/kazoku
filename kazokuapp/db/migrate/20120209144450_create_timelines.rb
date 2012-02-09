@@ -1,7 +1,10 @@
+#coding: utf-8
+
 class CreateTimelines < ActiveRecord::Migration
   def change
     create_table :timelines do |t|
       t.integer :id
+      
       t.belongs_to :kazoku
       t.belongs_to :user
       t.string :action
