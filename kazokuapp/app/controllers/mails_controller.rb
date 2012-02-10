@@ -2,9 +2,8 @@
 class MailsController < ApplicationController
   skip_before_filter :check_logined 
 
-  # ログイン
   def index
-    Mail.poll_mailgun
+    MailgunHandler.poll
     redirect_to :controller => 'photos', :action => 'index'
   end
 end
