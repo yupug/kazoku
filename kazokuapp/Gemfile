@@ -47,7 +47,7 @@ gem 'jquery-rails'
 
 
 # To handle mail
-gem 'tmail'
+gem 'mail'
 
 #To handle images
 gem 'rmagick'
