@@ -5,16 +5,12 @@ def image_data(file_name)
 end
 %>
 
-one:
-  id: 1
+<% 1.upto(100) do |i| %>
+content_<%=i%>:
+  id: <%=i%>
   kazoku_id: 1
-  user_id: 1
+  user_id: <%=(i%2+1).to_s%>
   data: !binary |
-<%= image_data 'Photo1.jpg' %>
+<%= image_data 'Photo'+(1+i%5).to_s+'.jpg' %>
+<% end %>
 
-two:
-  id: 2
-  kazoku_id: 1
-  user_id: 1
-  data: !binary |
-<%= image_data 'Photo2.jpg' %>

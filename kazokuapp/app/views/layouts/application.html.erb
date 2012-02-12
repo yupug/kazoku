@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kazokuapp</title>
+  <title><%= @title || '家族SNS' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <% if @css_files -%>
+  <% @css_files.each do |css_file| -%>
+  <link rel="stylesheet" type="text/css" href="<%= css_file %>" />
+  <% end -%>
+  <% end -%>
+
   <%= javascript_include_tag "application" %>
+  <% if @js_files -%>
+  <% @js_files.each do |js_file| -%>
+  <script type="text/javascript" src="<%= js_file %>"></script>
+  <% end -%>
+  <% end -%>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<% if @current_user %>
+  <div id="header">
+  	<%= render 'shared/header' %>
+  </div>
+  <div id="globalContainer">
+	<div id="menuContainer">
+  	  <%= render 'shared/menu' %>
+	</div>
+	<div id="mainContainer">
+		<%= yield %>
+	</div>
+	<br class="clear">
+  </div>
+<% else %>
+  <div>
+    <%= yield %>
+  </div>
+<% end %>
 </body>
 </html>

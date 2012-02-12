@@ -12,6 +12,15 @@ two:
   id: 2
   kazoku_id: 1
   user_id: 1
-  action: upload
+  action: upload_photo
   object1: 1
   object2: 1
+
+two:
+  id: 2
+  kazoku_id: 1
+  user_id: 1
+  action: comment_photo
+  object1: 1
+  object2: 1
+  object3: 写真コメント付けたよ

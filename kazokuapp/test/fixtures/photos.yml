@@ -1,17 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  id: 1
+<% 1.upto(100) do |i| %>
+photo_<%=i%>:
+  id: <%=i%>
   kazoku_id: 1
-  user_id: 1
-  content_id: 1
-  title: 画像1
+  user_id: <%=(i%2+1).to_s%>
+  content_id : <%=i%>
+  title: 画像<%=i%>
   mime_type: image/jpeg
-
-two:
-  id: 2
-  kazoku_id: 1
-  user_id: 1
-  content_id: 2
-  title: 画像2
-  mime_type: image/jpeg
+<% end %>

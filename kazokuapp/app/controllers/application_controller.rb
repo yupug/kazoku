@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
   def check_logined
     if session[:user_id]
       begin
-        @current_user = User.find_all_by_id(session[:user_id])
+        @current_user = User.find_by_id(session[:user_id])
+        @kazoku_users = User.where("kazoku_id = ? and id != ?", 
+          @current_user.kazoku_id, @current_user.id) || []
+
       rescue ActiveRecord::RecordNotFound
         logger.error "セッションの情報(" + session[:user_id] + ")は user_infos には存在しません。"
         reset_session

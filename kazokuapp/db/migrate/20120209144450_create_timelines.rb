@@ -10,6 +10,9 @@ class CreateTimelines < ActiveRecord::Migration
       t.string :action
       t.string :object1
       t.string :object2
+      t.string :object3
+      t.string :object4
+      t.string :object5
 
       t.timestamps
     end

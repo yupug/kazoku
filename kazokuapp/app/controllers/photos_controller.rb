@@ -4,8 +4,9 @@ require 'RMagick'
 class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
+  # render my photos
   def index
-    @photos = Photo.all
+    @photos = Photo.where(:kazoku_id => @current_user.kazoku.id).order("id DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +16,10 @@ class PhotosController < ApplicationController
 
   # GET /photos/1
   # GET /photos/1.json
+  # render photo's detail
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.where("id = ? and kazoku_id = ?", 
+      params[:id], @current_user.kazoku.id).first
 
     if params.has_key?("data") then
       image =  Magick::Image.from_blob(@photo.content.data).first

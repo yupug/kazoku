@@ -12,6 +12,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def photos
+    @target_user = User.find(params[:id])
+
+    WillPaginate.per_page = 12
+    @photos = Photo.where(
+      :kazoku_id => @current_user.kazoku.id,
+      :user_id => params[:id]).paginate(:page => params[:page]).order("id DESC")
+
+    respond_to do |format|
+      format.html # photos.html.erb
+      format.json { render :json => @photos }
+    end
+  end
+
+  def timelines
+    @target_user = User.find(params[:id])    
+    @timelines = Timeline.where(:kazoku_id => @current_user.kazoku.id,
+                                :user_id => params[:id]).order("id DESC")
+
+    respond_to do |format|
+      format.html # timelines.html.erb
+      format.json { render :json => @photos }
+    end
+  end
+
+
   # GET /users/1
   # GET /users/1.json
   def show

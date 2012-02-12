@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(:version => 20120209144603) do
     t.string   "action"
     t.string   "object1"
     t.string   "object2"
+    t.string   "object3"
+    t.string   "object4"
+    t.string   "object5"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

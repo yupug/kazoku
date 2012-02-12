@@ -52,3 +52,5 @@ gem 'mail'
 #To handle images
 gem 'rmagick'
 
+# To generate pager navigator
+gem 'will_paginate'

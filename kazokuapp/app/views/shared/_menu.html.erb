@@ -1,0 +1,19 @@
+	<div>
+		<%= @current_user.kazoku.name %>&nbsp;&nbsp;
+		<%= @current_user.name %>
+	</div>
+	<div class="menuHeader">お知らせ</div>
+	<ul class="menuList">
+		<li><a href="<%= url_for(:controller => 'timelines', :action => "index") %>">タイムライン</a></li>
+	</ul>
+	<div class="menuHeader">アルバム</div>
+	<ul class="menuList">
+		<li><a href="/users/photos/<%= @current_user.id %>/">自分</a></li>
+		<% @kazoku_users.each do |user| -%>
+		<li><a href="/users/photos/<%= user.id %>/"><%= user.name %></a></li>
+		<% end -%>
+	</ul>
+	<div class="menuHeader">設定</div>
+	<ul class="menuList">
+		<li>ユーザ設定</li>
+	</ul>

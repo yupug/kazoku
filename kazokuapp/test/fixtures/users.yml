@@ -2,7 +2,15 @@
 one:
   id: 1
   kazoku_id: 1
-  email: yu.isobe@gmail.com
+  email: xx@gmail.com
   password: <%= User.hashed_password("pass") %>
-  name: 磯部　優
+  name: 優
   receive_email: 'post-images-dev@kazoku.mailgun.org'
+
+two:
+  id: 2
+  kazoku_id: 1
+  email: xxx@gmail.com
+  password: <%= User.hashed_password("pass") %>
+  name: 由香
+  receive_email: 'post-images-dev2@kazoku.mailgun.org'
