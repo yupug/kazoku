@@ -15,10 +15,9 @@ class UsersController < ApplicationController
   def photos
     @target_user = User.find(params[:id])
 
-    WillPaginate.per_page = 12
     @photos = Photo.where(
       :kazoku_id => @current_user.kazoku.id,
-      :user_id => params[:id]).paginate(:page => params[:page]).order("id DESC")
+      :user_id => params[:id]).paginate(:page => params[:page], :per_page => 12 ).order("id DESC")
 
     respond_to do |format|
       format.html # photos.html.erb
