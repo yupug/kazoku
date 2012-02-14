@@ -19,6 +19,8 @@ class UsersController < ApplicationController
       :kazoku_id => @current_user.kazoku.id,
       :user_id => params[:id]).paginate(:page => params[:page], :per_page => 12 ).order("id DESC")
 
+    @comment = Comment.new
+    
     respond_to do |format|
       format.html # photos.html.erb
       format.json { render :json => @photos }
