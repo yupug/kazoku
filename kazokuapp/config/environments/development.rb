@@ -37,13 +37,4 @@ Kazokuapp::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  # configuration for ActionMailer
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-    :address => 'smpt.mailgun.org',
-    :port => '25',
-    :domain => 'kazoku.mailgun.org'
-  }
-
 end

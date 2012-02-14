@@ -7,8 +7,8 @@ hs.align = 'center';
 hs.transitions = ['expand', 'crossfade'];
 hs.fadeInOut = true;
 hs.dimmingOpacity = 0.8;
-hs.outlineType = 'rounded-white';
-hs.captionEval = 'this.thumb.alt';
+//hs.outlineType = 'rounded-white';
+//hs.captionEval = 'this.thumb.alt'; # use div highslide-caption class
 hs.marginBottom = 105; // make room for the thumbstrip and the controls
 hs.numberPosition = 'caption';
 
@@ -38,9 +38,18 @@ hs.addSlideshow({
 <% @photos.each do |photo| -%>
 	<div class="photo_thumb_block">
 		<div class="photo_thumb_image">
-			<a class='highslide' href='/photos/<%= photo.id %>/?data' onclick="return hs.expand(this)">
+			<a class='highslide' href='/photos/<%= photo.id %>/?data' onclick="return hs.expand(this,{wrapperClassName: 'wide-border', captionOverlay: { position: 'rightpanel'}})">
 				<img src="/photos/<%= photo.id %>/?data&scale=160x120" alt="<%= photo.title %>">
 			</a>
+			<div class="highslide-caption">
+				<p><%= photo.title %></p>
+				<hr>
+				<form action="post">
+					<textarea>コメントを入力...</textarea>
+				</form>
+				<div style="border-top:1px solid #ccc">コメント1</div>
+				<div style="border-top:1px solid #ccc">コメント2</div>
+			</div>
 		</div>
 		<span class="photo_thumb_title"><%= truncate(photo.title, {:length => 18}) %></span>
 	</div>
