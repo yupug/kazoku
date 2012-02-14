@@ -55,6 +55,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def create_ajax
+    @comment = Comment.new(params[:comment])
+    @comment.user_id = @current_user.id
+    @comment.kazoku_id = @current_user.kazoku_id    
+
+    @comment.save
+  end
+
   # PUT /comments/1
   # PUT /comments/1.json
   def update

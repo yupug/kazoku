@@ -1,0 +1,6 @@
+$('#comments-list-<%= @comment.photo.id %>').before(
+	"<%=escape_javascript('[' + @comment.user.name + ']' + @comment.comment) %>"
+);
+
+$("#comment-form-<%= @comment.photo.id %>").val('');
+
