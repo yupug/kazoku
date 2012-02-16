@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209144603) do
+ActiveRecord::Schema.define(:version => 20120214141947) do
 
   create_table "comments", :force => true do |t|
     t.integer  "kazoku_id"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(:version => 20120209144603) do
     t.string   "object3"
     t.string   "object4"
     t.string   "object5"
+    t.string   "object6"
+    t.string   "object7"
+    t.string   "object8"
+    t.string   "object9"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

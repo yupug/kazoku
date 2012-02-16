@@ -18,7 +18,7 @@ class MailgunHandler < ActiveRecord::Base
            :enable_ssl          => false }
       end
 
-      Mail.all(:delete_after_find => true).each do |email|
+      Mail.all(:delete_after_find => false).each do |email|
         begin
           if email.has_attachments? && !email.attachments.blank? then
             email.attachments.each do |attachment|

@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
  
     if user and user.password == hashed_password(password)
+
+      begin 
+        timeline = Timeline.new
+        timeline.create_by_login(user) 
+      rescue Exception => e
+        raise e
+      end
+              
       user
     else
       nil

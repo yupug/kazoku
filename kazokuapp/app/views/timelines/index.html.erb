@@ -1,0 +1,16 @@
+<dl>
+<% @timelines.each do |timeline| %>
+
+	<%if timeline.action == "login" then -%>
+	<dt>ログイン</dt>
+	<dd><%= timeline.user.name %>さんが<%= timeline.created_at %>にログインしました</dd>
+	<%elsif timeline.action == "upload_photo" then -%>
+	<dt>写真アップロード</dt>
+	<dd><%= timeline.user.name %>さんが写真「<%= timeline.object2 %>」をアップロードしました(<%= timeline.created_at %>)</dd>
+	<%elsif timeline.action == "comment_photo" then -%>
+	<dt>コメント</dt>
+	<dd><%= timeline.user.name %>さんが写真「<%= timeline.object6 %>」にコメント「<%= timeline.object2 %>」を付けました。(<%= timeline.created_at %>)</dd>
+	<% end -%>
+
+<% end -%>
+</dl>
