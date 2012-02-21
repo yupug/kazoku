@@ -56,6 +56,7 @@ class PhotosController < ApplicationController
 
   # POST /photos
   # POST /photos.json
+=begin
   def create
     @photo = Photo.new(params[:photo])
 
@@ -69,6 +70,27 @@ class PhotosController < ApplicationController
       end
     end
   end
+=end
+
+ def create
+    @photo = Photo.new(params[:photo])
+
+    if @photo.save
+      respond_to do |format|
+        format.html {  
+          render :json => [@photo.to_jq_upload].to_json, 
+          :content_type => 'text/html',
+          :layout => false
+        }
+        format.json {  
+          render :json => [@photo.to_jq_upload].to_json     
+        }
+      end
+    else 
+      render :json => [{:error => "custom_failure"}], :status => 304
+    end
+  end
+
 
   # PUT /photos/1
   # PUT /photos/1.json
@@ -88,6 +110,7 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   # DELETE /photos/1.json
+=begin
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
@@ -97,4 +120,13 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+
+    render :json => true
+  end
+
+
 end

@@ -1,3 +1,6 @@
 kazokuapp/tmp/**/*
 kazokuapp/log/*.log
 kazokuapp/db/*.sqlite3
+kazokuapp/public/uploads/photo/image/**/*
+kazokuapp/public/uploads/tmp/*
+

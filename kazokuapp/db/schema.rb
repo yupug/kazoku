@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214141947) do
+ActiveRecord::Schema.define(:version => 20120221141401) do
 
   create_table "comments", :force => true do |t|
     t.integer  "kazoku_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120214141947) do
     t.string   "mime_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
   add_index "photos", ["content_id"], :name => "index_photos_on_content_id"

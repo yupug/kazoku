@@ -54,3 +54,7 @@ gem 'rmagick'
 
 # To generate pager navigator
 gem 'will_paginate'
+
+# To handle uploader by using JQuery File Upload
+gem 'carrierwave'
+
