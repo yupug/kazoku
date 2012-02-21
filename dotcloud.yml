@@ -1,6 +1,9 @@
 www:
   type: ruby
   approot: kazokuapp
+  systempackages:
+    - libfuse2
+    - fuse-utils
 
 db:
   type: mysql
