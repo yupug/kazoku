@@ -32,7 +32,11 @@ hs.addSlideshow({
 });
 </script>
 
-<h2><%= @target_user.name %> のアルバム</h2>
+<div class="page-header">
+	<h3><%= @target_user.name %> のアルバム
+		&nbsp;	<small>写真をアップロードした日付順に表示します</small>
+	</h3>
+</div>	
 
 <div class="highslide-gallery" style="width: 100%; margin: auto">
 <% @photos.each do |photo| -%>
@@ -89,5 +93,5 @@ hs.addSlideshow({
 <br class="clear">
 
 <div class="apple_pagination">
-	<%= will_paginate @photos %>
+	<%= will_paginate @photos, :class => 'my-pagination' %>
 </div>

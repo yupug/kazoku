@@ -1,16 +1,36 @@
-<dl>
+<div class="page-header">
+	<h3>タイムライン
+		<small>家族みんなの履歴を表示します</small>
+	</h2>
+</div>	
 <% @timelines.each do |timeline| %>
-
+<div class="row">
 	<%if timeline.action == "login" then -%>
-	<dt>ログイン</dt>
-	<dd><%= timeline.user.name %>さんが<%= timeline.created_at %>にログインしました</dd>
+	<div class="span4">&nbsp;</div>
+	<div class="span8">
+		<div class="alert alert-info">
+			<h5>ログイン
+				<small><%= timeline.user.name %>さんが<%= timeline.created_at %>にログインしました</small>
+			</h5>
+		</div>
+	</div>
 	<%elsif timeline.action == "upload_photo" then -%>
-	<dt>写真アップロード</dt>
-	<dd><%= timeline.user.name %>さんが写真「<%= timeline.object2 %>」をアップロードしました(<%= timeline.created_at %>)</dd>
+	<div class="span2">&nbsp;</div>
+	<div class="span10">
+		<div class="alert alert-success">
+			<h5>写真アップロード
+				<small><%= timeline.user.name %>さんが写真「<%= timeline.object2 %>」をアップロードしました(<%= timeline.created_at %>)</small>
+			</h5>
+		</div>
+	</div>
 	<%elsif timeline.action == "comment_photo" then -%>
-	<dt>コメント</dt>
-	<dd><%= timeline.user.name %>さんが写真「<%= timeline.object6 %>」にコメント「<%= timeline.object2 %>」を付けました。(<%= timeline.created_at %>)</dd>
+	<div class="span12">
+		<div class="alert alert-warning">
+			<h5>コメント
+				<small><%= timeline.user.name %>さんが写真「<%= timeline.object6 %>」にコメント「<%= timeline.object2 %>」を付けました。(<%= timeline.created_at %>)</small>
+			</h5>
+		</div>
+	</div>
 	<% end -%>
-
+</div>
 <% end -%>
-</dl>
